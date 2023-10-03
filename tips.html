@@ -17,6 +17,12 @@
 
 <div id="tip-results"></div>
 
+<form>
+    <label><input type="radio" name="operation" value="sum" onclick="chooseOp()"> Sum</label>
+    <label><input type="radio" name="operation" value="diff" onclick="chooseOp()"> Difference</label>
+    <label><input type="radio" name="operation" value="mult" onclick="chooseOp()"> Product</label>
+</form>
+<div id="result-output"></div>
 <script>
 function tips() {
      
@@ -29,6 +35,23 @@ function tips() {
         toShow += `${tipPercent + i * 4}% is ${(calculatedTip-baseAmount).toFixed(1)}; `;
     }
     document.getElementById('tip-results').innerHTML = toShow;
+}
+function chooseOp() {
+    
+    const baseAmount = document.getElementById('base-amount').value;
+    const tipPercent = document.getElementById('tip-percent').value;
+
+    let result;
+    if (operation === "sum") {
+        result = baseAmount + tipPercent;
+        document.getElementById('result-output').innerHTML = `sum of ${baseAmount} and ${tipPercent} is ${result}`;
+    } else if (operation === "diff") {
+        result = baseAmount - tipPercent;
+        document.getElementById('result-output').innerHTML = `difference of ${baseAmount} and ${tipPercent} is ${result}`;
+    } else if (operation === "mult") {
+        result = baseAmount * tipPercent;
+        document.getElementById('result-output').innerHTML = `product of ${baseAmount} and ${tipPercent} is ${result}`;
+    }
 }
 
 </script>
