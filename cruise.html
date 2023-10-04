@@ -10,9 +10,9 @@
 
 <form class="mb-4">
     <div class="form-group form-check">
-        <label class="form-check-label"><input type="checkbox" id="checkbox1" value="True" class="form-check-input"> Shares Cabin</label><br>
-        <label class="form-check-label"><input type="checkbox" id="checkbox2" value="True" class="form-check-input"> Breakfast</label><br>
-        <label class="form-check-label"><input type="checkbox" id="checkbox3" value="False" class="form-check-input"> Pool Pass</label><br>
+        <label class="form-check-label"><input type="checkbox" id="checkbox1" checked=true class="form-check-input"> Shares Cabin</label><br>
+        <label class="form-check-label"><input type="checkbox" id="checkbox2" checked=true class="form-check-input"> Breakfast</label><br>
+        <label class="form-check-label"><input type="checkbox" id="checkbox3"  class="form-check-input"> Pool Pass</label><br>
     </div>
 
     <button type="button" onclick="selectCruise()" class="btn btn-primary">Select a cruise</button>
@@ -30,7 +30,7 @@
     
 </form>
 <button onclick="updateCruise()" class="btn btn-success">Update the cruise</button>
-<p id="cruise_Update"></p>
+<p id="cruise_Update2"></p>
 
 <script>
 let my_cruise = {};
@@ -44,12 +44,13 @@ function selectCruise() {
     document.getElementById('cruise-results').innerHTML = JSON.stringify(my_cruise);
 }
 function updateCruise() {
+    my_cruise={}
     const days = document.getElementById('days').value;
     const price = document.getElementById('price').value;
 
     my_cruise["days"] = days;
     my_cruise["price"] = price;
-    document.getElementById('cruise_Update').textContent = `my_cruise[...] = ${JSON.stringify(my_cruise)}`;
+    document.getElementById('cruise_Update2').textContent = `my_cruise[...] = ${JSON.stringify(my_cruise)}`;
 }
 </script>
 

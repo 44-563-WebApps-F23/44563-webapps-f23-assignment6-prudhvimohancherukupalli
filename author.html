@@ -37,7 +37,7 @@
             alert("You got it right!");
         } else {
             oops++;
-            document.getElementById("incorrect-guesses").innerHTML += `<div>Incorrect Guess #${oops}: ${guessAuthor}</div>`;
+            document.getElementById("incorrect-guesses").innerHTML = `<div>Incorrect Guess #${oops}: ${guessAuthor}</div>`;
             if (oops >= 7) {
                 document.querySelector("button").onclick = function() {
                     alert("Sorry, ran out of guesses.");
