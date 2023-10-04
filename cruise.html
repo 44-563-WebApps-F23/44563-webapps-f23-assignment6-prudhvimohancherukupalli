@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html>
- <head>Prudhvi Mohan Cherukupalli goes on a cruise</head>
-<body>
+ <head>
+    <title>Prudhvi Mohan Cherukupalli goes on a cruise</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
 <h1>Prudhvi Mohan Cherukupalli goes on a cruise</h1>
 <h2>Getting input</h2>
 
-<form>
-    <div class="form-group">
-        <label><input type="checkbox" id="checkbox1" value="True"> Shares Cabin</label><br>
-        <label><input type="checkbox" id="checkbox2" value="True"> Breakfast</label><br>
-        <label><input type="checkbox" id="checkbox3" value="False"> Pool Pass</label><br>
+<form class="mb-4">
+    <div class="form-group form-check">
+        <label class="form-check-label"><input type="checkbox" id="checkbox1" value="True" class="form-check-input"> Shares Cabin</label><br>
+        <label class="form-check-label"><input type="checkbox" id="checkbox2" value="True" class="form-check-input"> Breakfast</label><br>
+        <label class="form-check-label"><input type="checkbox" id="checkbox3" value="False" class="form-check-input"> Pool Pass</label><br>
     </div>
 
-    <button type="button" onclick="selectCruise()">Select a cruise</button>
+    <button type="button" onclick="selectCruise()" class="btn btn-primary">Select a cruise</button>
 </form>
 
 <div id="cruise-results"></div>
 
 <br>
-<form>
+<form class="mb-4 form-group">
     <label for="days">Enter the number of days</label>
-    <input type="text" id="days" name="days" value="days"><br><br>
+    <input type="text" id="days" name="days" value="days" class="form-control"><br><br>
     
     <label for="price">Enter price</label>
-    <input type="text" id="price" name="price" value="price"><br><br>
+    <input type="text" id="price" name="price" value="price" class="form-control"><br><br>
     
 </form>
-<button onclick="updateCruise()">Update the cruise</button>
+<button onclick="updateCruise()" class="btn btn-success">Update the cruise</button>
 <p id="cruise_Update"></p>
 
 <script>

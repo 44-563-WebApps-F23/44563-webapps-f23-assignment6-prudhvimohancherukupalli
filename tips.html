@@ -1,60 +1,79 @@
 <!DOCTYPE html>
 <html>
-    <head><title>Prudhvi Mohan Cherukupalli shows tip amounts</title></head>
- 
-<body>
-<h1>Prudhvi Mohan Cherukupalli shows tip amounts</h1>
-<h2>Getting input</h2>
-<form action="">
-    <label for="base-amount">Enter base amount:</label>
-    <input type="number" id="base-amount" value="50"><br><br>
 
-    <label for="tip-percent">Enter the tip percent:</label>
-    <input type="number" id="tip-percent" value="15"><br><br>
+<head>
+    <title>Prudhvi Mohan Cherukupalli shows tip amounts</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
 
-    <button type="button" onclick="tips()">Show tip</button>
-</form>
+<body class="container mt-5">
 
-<div id="tip-results"></div>
+    <h1>Prudhvi Mohan Cherukupalli shows tip amounts</h1>
+    <h2>Getting input</h2>
 
-<form>
-    <label><input type="radio" name="operation" value="sum" onclick="chooseOp()"> Sum</label>
-    <label><input type="radio" name="operation" value="diff" onclick="chooseOp()"> Difference</label>
-    <label><input type="radio" name="operation" value="mult" onclick="chooseOp()"> Product</label>
-</form>
-<div id="result-output"></div>
-<script>
-function tips() {
-     
-    const baseAmount = parseFloat(document.getElementById('base-amount').value);
-    const tipPercent = parseFloat(document.getElementById('tip-percent').value);
-    let toShow = "Tips are: ";
+    <form class="mb-4">
+        <div class="form-group">
+            <label for="base-amount">Enter base amount:</label>
+            <input type="number" id="base-amount" value="50" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="tip-percent">Enter the tip percent:</label>
+            <input type="number" id="tip-percent" value="15" class="form-control">
+        </div>
+        <button type="button" onclick="tips()" class="btn btn-primary">Show tip</button>
+    </form>
 
-    for (let i = 0; i < 5; i++) {
-        const calculatedTip = baseAmount * (1 + (tipPercent + i * 4) / 100);
-        toShow += `${tipPercent + i * 4}% is ${(calculatedTip-baseAmount).toFixed(1)}; `;
-    }
-    document.getElementById('tip-results').innerHTML = toShow;
-}
-function chooseOp() {
-    
-    const baseAmount = document.getElementById('base-amount').value;
-    const tipPercent = document.getElementById('tip-percent').value;
+    <div id="tip-results" class="mb-4"></div>
 
-    let result;
-    if (operation === "sum") {
-        result = baseAmount + tipPercent;
-        document.getElementById('result-output').innerHTML = `sum of ${baseAmount} and ${tipPercent} is ${result}`;
-    } else if (operation === "diff") {
-        result = baseAmount - tipPercent;
-        document.getElementById('result-output').innerHTML = `difference of ${baseAmount} and ${tipPercent} is ${result}`;
-    } else if (operation === "mult") {
-        result = baseAmount * tipPercent;
-        document.getElementById('result-output').innerHTML = `product of ${baseAmount} and ${tipPercent} is ${result}`;
-    }
-}
+    <form class="mb-4">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="operation" value="sum" onclick="chooseOp('sum')">
+            <label class="form-check-label">Sum</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="operation" value="diff" onclick="chooseOp('diff')">
+            <label class="form-check-label">Difference</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="operation" value="mult" onclick="chooseOp('mult')">
+            <label class="form-check-label">Product</label>
+        </div>
+    </form>
 
-</script>
+    <div id="result-output"></div>
+
+    <script>
+        function tips() {
+            const baseAmount = parseFloat(document.getElementById('base-amount').value);
+            const tipPercent = parseFloat(document.getElementById('tip-percent').value);
+            let toShow = "Tips are: ";
+
+            for (let i = 0; i < 5; i++) {
+                const calculatedTip = baseAmount * (1 + (tipPercent + i * 4) / 100);
+                toShow += `${tipPercent + i * 4}% is ${(calculatedTip - baseAmount).toFixed(1)}; `;
+            }
+            document.getElementById('tip-results').innerHTML = toShow;
+        }
+
+        function chooseOp() {
+            const baseAmount = parseFloat(document.getElementById('base-amount').value);
+            const tipPercent = parseFloat(document.getElementById('tip-percent').value);
+            const operation = document.querySelector('input[name="operation"]:checked').value;
+
+            let result;
+            if (operation === "sum") {
+                result = baseAmount + tipPercent;
+                document.getElementById('result-output').innerHTML = `Sum of ${baseAmount} and ${tipPercent} is ${result}`;
+            } else if (operation === "diff") {
+                result = baseAmount - tipPercent;
+                document.getElementById('result-output').innerHTML = `Difference of ${baseAmount} and ${tipPercent} is ${result}`;
+            } else if (operation === "mult") {
+                result = baseAmount * tipPercent;
+                document.getElementById('result-output').innerHTML = `Product of ${baseAmount} and ${tipPercent} is ${result}`;
+            }
+        }
+    </script>
 
 </body>
-</html> 
+
+</html>
